@@ -1,11 +1,11 @@
 ARG NODE_VERSION=12.18.3
+FROM node:${NODE_VERSION}-alpine
 
 #Allow the image to build behind a proxy
 ARG proxy=
 ENV HTTP_PROXY=$proxy
 ENV HTTPS_PROXY=$proxy
 
-FROM node:${NODE_VERSION}-alpine
 RUN apk add --no-cache make pkgconfig gcc g++ python libx11-dev libxkbfile-dev
 ARG version=latest
 WORKDIR /home/theia
